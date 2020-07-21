@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render Expense Summary in dashboard 1`] = `
+<div>
+  <h1>
+    <p>
+       Viewing 
+      5
+       
+      expenses
+       totalling 
+      ₹150
+    </p>
+     
+  </h1>
+</div>
+`;
+
+exports[`Should render Expense Summary in dashboard 2`] = `
+<div>
+  <h1>
+    <p>
+       Viewing 
+      5
+       
+      expenses
+       totalling 
+      ₹150
+    </p>
+     
+  </h1>
+</div>
+`;
