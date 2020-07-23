@@ -1,4 +1,9 @@
-import {addExpense,removeExpense,editExpense} from '../../actions/expenses'
+import {startAddExpense,addExpense,removeExpense,editExpense} from '../../actions/expenses'
+import expenses from '../fixtures/expenses'
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+
+const createMockStore = configureMockStore([thunk])
 
 test('Should set up remove expense', () =>{
     const action = removeExpense({id:'123abc'})
@@ -22,34 +27,47 @@ test('Should set up edit expense', () =>{
 })
 
 test('Should set up add expense with given values', () =>{
-    const expenseData = {
-        description:'rent',
-        amount:19500,
-        createdAt:500,
-        note:"Last month's rent"
-    }
-    const action = addExpense(expenseData)
+    
+    const action = addExpense(expenses[2])
 
     expect(action).toEqual({
         type:'ADD_EXPENSE',
         expense:{
-            ...expenseData,
-            id:expect.any(String)
+        ...expenses[2]
         }
     })
 })
 
-test('Should set up add expense with given values', () =>{
-    const action = addExpense()
+// test('Should add expense to db and store', (done) =>{
+//     const store = createMockStore({})
+//     const expenseData = {
+//         description:'Mouse',
+//         amount:3000,
+//         note:'This is a test',
+//         createdAt:1000
 
-    expect(action).toEqual({
-        type:'ADD_EXPENSE',
-        expense:{
-        description : '',
-        note : '',
-        amount :0,
-        createdAt : 0,
-        id:expect.any(String)
-        }
-    })
+//     }
+//     store.dispatch(startAddExpense(expenseData)).then(() =>{
+//       done()
+//     })
+ 
+// })
+
+test('Should add expense to db with default values and store', () =>{
+    
 })
+
+// test('Should set up add expense with default values', () =>{
+//     const action = addExpense()
+
+//     expect(action).toEqual({
+//         type:'ADD_EXPENSE',
+//         expense:{
+//         description : '',
+//         note : '',
+//         amount :0,
+//         createdAt : 0,
+//         id:expect.any(String)
+//         }
+//     })
+// })
