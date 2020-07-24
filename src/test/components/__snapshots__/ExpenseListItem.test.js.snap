@@ -10,7 +10,7 @@ exports[`Should render expense list 1`] = `
     </[object Object]>
   </h3>
   <p>
-    50
+    ₹50
     -
     January 1st, 1970
   </p>
